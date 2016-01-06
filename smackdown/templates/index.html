@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>
+            Author Smackdown
+        </title>
+    </head>
+
+    <body>
+
+    <ul>
+        {% for service in response_list %}
+            <li>
+                <a href="{{service.url}}">{{ service.name }}</a>: {{ service.status }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    </body>
+</html>
