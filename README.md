@@ -1,4 +1,5 @@
-
+[![Build Status](https://travis-ci.org/jonnybazookatone/authorsmackdown.svg?branch=master)](https://travis-ci.org/jonnybazookatone/authorsmackdown)
+[![Coverage Status](https://coveralls.io/repos/jonnybazookatone/authorsmackdown/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonnybazookatone/authorsmackdown?branch=master)
 # Author Smackdown
 
 ## development
