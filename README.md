@@ -2,6 +2,10 @@
 [![Coverage Status](https://coveralls.io/repos/jonnybazookatone/authorsmackdown/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonnybazookatone/authorsmackdown?branch=master)
 # Author Smackdown
 
+Pit yourself against other authors in your field, and see who the victor will be.
+
+![Rock Bottom](rock_bottom.jpg)
+
 ## development
 
 A Vagrantfile and puppet manifest are available for development within a virtual machine. To use the vagrant VM defined here you will need to install *Vagrant* and *VirtualBox*. 
