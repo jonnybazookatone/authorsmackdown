@@ -36,15 +36,10 @@ class SmackView(Resource):
         post_data = get_post_data(request)
 
         try:
-            author1 = ads.SearchQuery(q=post_data['query1'])
-            author2 = ads.SearchQuery(q=post_data['query2'])
+            author1 = ads.SearchQuery(q=post_data['query1'], fl=['id', 'bibcode'])
+            author2 = ads.SearchQuery(q=post_data['query2'], fl=['id', 'bibcode'])
         except KeyError:
             abort(404)
-
-        DEFAULT_FIELDS = ['id', 'bibcode']
-
-        author1.DEFAULT_FIELDS = DEFAULT_FIELDS
-        author2.DEFAULT_FIELDS = DEFAULT_FIELDS
 
         bibcodes1 = [paper.bibcode for paper in author1]
         bibcodes2 = [paper.bibcode for paper in author2]
