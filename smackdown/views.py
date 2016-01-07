@@ -36,8 +36,8 @@ class SmackView(Resource):
         post_data = get_post_data(request)
 
         try:
-            author1 = ads.SearchQuery(q=post_data['query1'], fl=['id', 'bibcode'])
-            author2 = ads.SearchQuery(q=post_data['query2'], fl=['id', 'bibcode'])
+            author1 = ads.SearchQuery(q=post_data['query1'], fq='database:astronomy', fl=['id', 'bibcode'], rows=1000)
+            author2 = ads.SearchQuery(q=post_data['query2'], fq='database:astronomy', fl=['id', 'bibcode'], rows=1000)
         except KeyError:
             abort(404)
 
