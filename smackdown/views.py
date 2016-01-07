@@ -44,18 +44,25 @@ class SmackView(Resource):
         bibcodes1 = [paper.bibcode for paper in author1]
         bibcodes2 = [paper.bibcode for paper in author2]
 
-        metrics1 = ads.MetricsQuery(bibcodes=bibcodes1)
-        metrics2 = ads.MetricsQuery(bibcodes=bibcodes2)
+        riq1 = 0
+        riq2 = 0
 
-        response1 = metrics1.execute()
-        response2 = metrics2.execute()
+        if bibcodes1:
+            metrics1 = ads.MetricsQuery(bibcodes=bibcodes1)
+            response1 = metrics1.execute()
+            riq1 = response1['indicators']['riq']
+
+        if bibcodes2:
+            metrics2 = ads.MetricsQuery(bibcodes=bibcodes2)
+            response2 = metrics2.execute()
+            riq2 = response2['indicators']['riq']
 
         response = {
             'author1': {
-                'riq': response1['indicators']['riq']
+                'riq': riq1
             },
             'author2': {
-                'riq': response2['indicators']['riq']
+                'riq': riq2
             }
         }
 
