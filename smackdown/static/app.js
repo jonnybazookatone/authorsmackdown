@@ -93,7 +93,7 @@
 	        _react2.default.createElement(
 	          'a',
 	          { href: '#qa' },
-	          'what'
+	          'what??'
 	        )
 	      )
 	    );
@@ -110,7 +110,7 @@
 	      _react2.default.createElement(
 	        'h3',
 	        { id: 'qa' },
-	        ' what '
+	        ' what?? '
 	      ),
 	      _react2.default.createElement('hr', null),
 	      _react2.default.createElement(
@@ -361,10 +361,21 @@
 
 	  render: function render() {
 
-	    var winner = this.props.data.author1.riq > this.props.data.author2.riq ? "author1" : "author2";
-	    var winnerName = this.props.data[winner].name;
-	    var img1 = winner == "author1" ? this.props.img1.winner : this.props.img1.loser;
-	    var img2 = winner == "author2" ? this.props.img2.winner : this.props.img2.loser;
+	    //it's not a tie
+	    if (this.props.data.author1.riq !== this.props.data.author2.riq) {
+
+	      var winner = this.props.data.author1.riq > this.props.data.author2.riq ? "author1" : "author2";
+	      var winnerName = this.props.data[winner].name;
+	      var img1 = winner == "author1" ? this.props.img1.winner : this.props.img1.loser;
+	      var img2 = winner == "author2" ? this.props.img2.winner : this.props.img2.loser;
+	      var announcementText = "COWABUNGA!!!!  What a win by " + winnerName + "!!!";
+	    } else {
+	      //it's a tie
+	      var winner = this.props.data.author1.riq > this.props.data.author2.riq ? "author1" : "author2";
+	      var img1 = this.props.img1.winner;
+	      var img2 = this.props.img2.winner;
+	      var announcementText = "HOLY MOLY!!!! It's a TIE!";
+	    }
 
 	    return _react2.default.createElement(
 	      'div',
@@ -425,13 +436,9 @@
 	        _react2.default.createElement(
 	          'span',
 	          { className: 'announcement' },
-	          ' COWABUNGA!!!! What a win by ',
-	          _react2.default.createElement(
-	            'b',
-	            null,
-	            winnerName
-	          ),
-	          '!!! '
+	          ' ',
+	          announcementText,
+	          ' '
 	        )
 	      ),
 	      _react2.default.createElement(
